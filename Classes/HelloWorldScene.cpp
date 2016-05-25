@@ -17,7 +17,8 @@ Scene* HelloWorld::createScene()
     return scene;
 }
 
-void HelloWorld::addMonster(float dt) {
+void HelloWorld::addMonster(float dt)
+{
     auto monster = Sprite::create("monster.png");
     
     //1
@@ -41,6 +42,40 @@ void HelloWorld::addMonster(float dt) {
     auto actionMove = MoveTo::create(randomDuration, Vec2(-monsterContentSize.width/2, randomY));
     auto actionRemove = RemoveSelf::create();
     monster->runAction(Sequence::create(actionMove, actionRemove, nullptr));
+}
+
+bool HelloWorld::onTouchBegan(Touch *touch, Event *unused_event)
+{
+    // 1
+    auto node = unused_event->getCurrentTarget();
+    
+    // 2
+    Vec2 touchLocation = touch->getLocation();
+    Vec2 offset = touchLocation - _player->getPosition();
+    
+    // 3
+    if (offset.x < 0) {
+        return true;
+    }
+    
+    // 4
+    auto projectile = Sprite::create("projectile.png");
+    projectile->setPosition(_player->getPosition());
+    this->addChild(projectile);
+    
+    // 5
+    offset.normalize();
+    auto shootAmount = offset * 1000;
+    
+    // 6
+    auto realDest = shootAmount + projectile->getPosition();
+    
+    // 7
+    auto actionMove = MoveTo::create(2.0f, realDest);
+    auto actionRemove = RemoveSelf::create();
+    projectile->runAction(Sequence::create(actionMove, actionRemove, nullptr));
+    
+    return true;
 }
 
 // on "init" you need to initialize your instance
@@ -72,6 +107,11 @@ bool HelloWorld::init()
     
     srand((unsigned int)time(nullptr));
     this->schedule(schedule_selector(HelloWorld::addMonster), 1.5);
+    
+    auto eventListener = EventListenerTouchOneByOne::create();
+    eventListener->onTouchBegan = CC_CALLBACK_2(HelloWorld::onTouchBegan, this);
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(eventListener, _player);
+    
     return true;
 }
 

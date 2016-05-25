@@ -20,6 +20,8 @@ public:
     
     void addMonster(float dt);
     
+    bool onTouchBegan(Touch *touch, Event *unused_event);
+    
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 };
