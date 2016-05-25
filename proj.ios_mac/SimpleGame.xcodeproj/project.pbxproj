@@ -17,6 +17,8 @@
 		10059AD61CF61698009BBC0C /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 10059ACD1CF61698009BBC0C /* player.png */; };
 		10059AD71CF61698009BBC0C /* projectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 10059ACE1CF61698009BBC0C /* projectile.png */; };
 		10059AD81CF61698009BBC0C /* projectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 10059ACE1CF61698009BBC0C /* projectile.png */; };
+		10FBF47D1CF632D3008296D4 /* ninja2.png in Resources */ = {isa = PBXBuildFile; fileRef = 10FBF47C1CF632D3008296D4 /* ninja2.png */; };
+		10FBF47E1CF632D3008296D4 /* ninja2.png in Resources */ = {isa = PBXBuildFile; fileRef = 10FBF47C1CF632D3008296D4 /* ninja2.png */; };
 		1AC6FB21180E996B004C840B /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */; };
 		1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2d iOS.a */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -118,6 +120,7 @@
 		10059ACC1CF61698009BBC0C /* pew-pew-lei.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "pew-pew-lei.mp3"; sourceTree = "<group>"; };
 		10059ACD1CF61698009BBC0C /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
 		10059ACE1CF61698009BBC0C /* projectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = projectile.png; sourceTree = "<group>"; };
+		10FBF47C1CF632D3008296D4 /* ninja2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ninja2.png; sourceTree = "<group>"; };
 		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -299,6 +302,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				10FBF47C1CF632D3008296D4 /* ninja2.png */,
 				10059ACA1CF61698009BBC0C /* background-music-aac.mp3 */,
 				10059ACB1CF61698009BBC0C /* monster.png */,
 				10059ACC1CF61698009BBC0C /* pew-pew-lei.mp3 */,
@@ -477,6 +481,7 @@
 				46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */,
 				46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
+				10FBF47D1CF632D3008296D4 /* ninja2.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
@@ -510,6 +515,7 @@
 				10059AD81CF61698009BBC0C /* projectile.png in Resources */,
 				521A8EAA19F11F5000D177D7 /* fonts in Resources */,
 				46880B7C19C43A67006E1F66 /* CloseNormal.png in Resources */,
+				10FBF47E1CF632D3008296D4 /* ninja2.png in Resources */,
 				10059AD61CF61698009BBC0C /* player.png in Resources */,
 				10059AD21CF61698009BBC0C /* monster.png in Resources */,
 				46880B7E19C43A67006E1F66 /* CloseSelected.png in Resources */,

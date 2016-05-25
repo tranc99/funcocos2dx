@@ -39,7 +39,7 @@ bool HelloWorld::init()
     this->addChild(background);
 
     // 4
-    _player = Sprite::create("player.png");
+    _player = Sprite::create("ninja2.png");
     _player->setPosition(Vec2(winSize.width * 0.1, winSize.height * 0.5));
     // add the sprite as a child to this layer
     this->addChild(_player);
