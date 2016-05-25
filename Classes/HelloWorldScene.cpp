@@ -33,6 +33,14 @@ void HelloWorld::addMonster(float dt)
 {
     auto monster = Sprite::create("monster.png");
     
+    auto monsterSize = monster->getContentSize();
+    auto physicsBody = PhysicsBody::createBox(Size(monsterSize.width, monsterSize.height), PhysicsMaterial(0.1f, 1.0f, 0.0f));
+    physicsBody->setDynamic(true);
+    physicsBody->setCategoryBitmask((int)PhysicsCategory::Monster);
+    physicsBody->setCollisionBitmask((int)PhysicsCategory::None);
+    physicsBody->setContactTestBitmask((int)PhysicsCategory::Projectile);
+    monster->setPhysicsBody(physicsBody);
+    
     //1
     auto monsterContentSize = monster->getContentSize();
     auto selfContentSize = this->getContentSize();
@@ -76,6 +84,15 @@ bool HelloWorld::onTouchBegan(Touch *touch, Event *unused_event)
     //auto projectile = Sprite::create("projectile.png");
     auto projectile = Sprite::create(arrSprite[ind]);
     projectile->setPosition(_player->getPosition());
+    
+    auto projectileSize = projectile->getContentSize();
+    auto physicsBody = PhysicsBody::createCircle(projectileSize.width/2);
+    physicsBody->setDynamic(true);
+    physicsBody->setCategoryBitmask((int)PhysicsCategory::Projectile);
+    physicsBody->setCollisionBitmask((int)PhysicsCategory::None);
+    physicsBody->setContactTestBitmask((int)PhysicsCategory::Monster);
+    projectile->setPhysicsBody(physicsBody);
+    
     this->addChild(projectile);
     
     // 5
