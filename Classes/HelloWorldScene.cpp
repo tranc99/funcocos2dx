@@ -17,6 +17,32 @@ Scene* HelloWorld::createScene()
     return scene;
 }
 
+void HelloWorld::addMonster(float dt) {
+    auto monster = Sprite::create("monster.png");
+    
+    //1
+    auto monsterContentSize = monster->getContentSize();
+    auto selfContentSize = this->getContentSize();
+    int minY = monsterContentSize.height/2;
+    int maxY = selfContentSize.height - monsterContentSize.height/2;
+    int rangeY = maxY - minY;
+    int randomY = (rand() % rangeY) + minY;
+    
+    monster->setPosition(Vec2(selfContentSize.width + monsterContentSize.width/2, randomY));
+    this->addChild(monster);
+    
+    //2
+    int minDuration = 2.0;
+    int maxDuration = 4.0;
+    int rangeDuration = maxDuration - minDuration;
+    int randomDuration = (rand() % rangeDuration) + minDuration;
+    
+    //3
+    auto actionMove = MoveTo::create(randomDuration, Vec2(-monsterContentSize.width/2, randomY));
+    auto actionRemove = RemoveSelf::create();
+    monster->runAction(Sequence::create(actionMove, actionRemove, nullptr));
+}
+
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
 {
@@ -44,6 +70,8 @@ bool HelloWorld::init()
     // add the sprite as a child to this layer
     this->addChild(_player);
     
+    srand((unsigned int)time(nullptr));
+    this->schedule(schedule_selector(HelloWorld::addMonster), 1.5);
     return true;
 }
 
