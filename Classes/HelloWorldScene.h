@@ -3,8 +3,10 @@
 
 #include "cocos2d.h"
 #include <string>
+#include "SimpleAudioEngine.h"
 
 using namespace cocos2d;
+using namespace CocosDenshion;
 
 class HelloWorld : public cocos2d::Layer
 {

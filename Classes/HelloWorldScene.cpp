@@ -3,6 +3,9 @@
 
 USING_NS_CC;
 
+#define BACKGROUND_MUSIC_SFX "background-music-aac.mp3"
+#define PEW_PEW_SFX          "pew-pew-lei.mp3"
+
 enum class PhysicsCategory {
     None = 0,
     Monster = (1 << 0 ),
@@ -107,6 +110,7 @@ bool HelloWorld::onTouchBegan(Touch *touch, Event *unused_event)
     auto actionRemove = RemoveSelf::create();
     projectile->runAction(Sequence::create(actionMove, actionRemove, nullptr));
     
+    SimpleAudioEngine::getInstance()->playEffect(PEW_PEW_SFX);
     return true;
 }
 
@@ -157,6 +161,8 @@ bool HelloWorld::init()
     auto contactListener = EventListenerPhysicsContact::create();
     contactListener->onContactBegin = CC_CALLBACK_1(HelloWorld::onContactBegan, this);
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);
+    
+    SimpleAudioEngine::getInstance()->playBackgroundMusic(BACKGROUND_MUSIC_SFX, true);
     
     return true;
 }
