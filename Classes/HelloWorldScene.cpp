@@ -110,6 +110,16 @@ bool HelloWorld::onTouchBegan(Touch *touch, Event *unused_event)
     return true;
 }
 
+bool HelloWorld::onContactBegan(PhysicsContact &contact)
+{
+    auto nodeA = contact.getShapeA()->getBody()->getNode();
+    auto nodeB = contact.getShapeB()->getBody()->getNode();
+    
+    nodeA->removeFromParent();
+    nodeB->removeFromParent();
+    return true;
+}
+
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
 {
@@ -143,6 +153,10 @@ bool HelloWorld::init()
     auto eventListener = EventListenerTouchOneByOne::create();
     eventListener->onTouchBegan = CC_CALLBACK_2(HelloWorld::onTouchBegan, this);
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(eventListener, _player);
+    
+    auto contactListener = EventListenerPhysicsContact::create();
+    contactListener->onContactBegin = CC_CALLBACK_1(HelloWorld::onContactBegan, this);
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);
     
     return true;
 }

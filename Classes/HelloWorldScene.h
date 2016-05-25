@@ -24,6 +24,8 @@ public:
     
     bool onTouchBegan(Touch *touch, Event *unused_event);
     
+    bool onContactBegan(PhysicsContact &contact);
+    
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 };
