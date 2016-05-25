@@ -3,6 +3,14 @@
 
 USING_NS_CC;
 
+enum class PhysicsCategory {
+    None = 0,
+    Monster = (1 << 0 ),
+    Projectile = ( 1 << 1),
+    All = PhysicsCategory::Monster | PhysicsCategory::Projectile // 3
+};
+
+
 Scene* HelloWorld::createScene()
 {
     // 'scene' is an autorelease object
