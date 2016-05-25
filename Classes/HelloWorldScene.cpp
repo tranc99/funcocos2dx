@@ -1,5 +1,6 @@
 #include "HelloWorldScene.h"
 
+
 USING_NS_CC;
 
 Scene* HelloWorld::createScene()
@@ -58,8 +59,11 @@ bool HelloWorld::onTouchBegan(Touch *touch, Event *unused_event)
         return true;
     }
     
+    const std::string arrSprite[3] = {"blow1.png", "blow2.png", "blow3.png"};
+    int ind = rand() % 3;
     // 4
-    auto projectile = Sprite::create("projectile.png");
+    //auto projectile = Sprite::create("projectile.png");
+    auto projectile = Sprite::create(arrSprite[ind]);
     projectile->setPosition(_player->getPosition());
     this->addChild(projectile);
     
@@ -96,7 +100,7 @@ bool HelloWorld::init()
     /////////////////////////////
     // 3. add your codes below...
     auto background = DrawNode::create();
-    background->drawSolidRect(origin, winSize, Color4F(0.6, 0.6, 0.6, 1.0));
+    background->drawSolidRect(origin, winSize, Color4F(0.8, 0.4, 0.6, 1.0));
     this->addChild(background);
 
     // 4
